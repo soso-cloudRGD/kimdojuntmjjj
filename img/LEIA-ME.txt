@@ -1,0 +1,21 @@
+PASTA DE IMAGENS — Pele de Porcelana
+=====================================
+
+Arraste as fotos que você me enviou para DENTRO desta pasta (img),
+salvando com EXATAMENTE estes nomes (tudo minúsculo, sem acento):
+
+  kim-dojun.jpg   ->  a foto do Kim (homem de camiseta azul-marinho no sofá)
+
+  ba-1.jpg        ->  antes/depois 1  (mulher de cabelo grisalho, camiseta branca -> azul)
+  ba-2.jpg        ->  antes/depois 2  (mulher de cabelo castanho ondulado)
+  ba-3.jpg        ->  antes/depois 3  (mulher de pele morena, cabelo preso, camiseta bege -> azul)
+  ba-4.jpg        ->  antes/depois 4  (mulher grisalha, camiseta branca -> azul) — usada na PROJEÇÃO
+  ba-5.jpg        ->  antes/depois 5  (mulher negra de cabelo cacheado, camiseta bege)
+
+DICAS
+- Use as imagens já no formato "antes | depois" lado a lado (do jeito que você mandou). Perfeito.
+- Pode trocar a ordem/quais fotos quiser — só mantenha os nomes ba-1..ba-5 e kim-dojun.
+- Formato .jpg. Se as suas forem .png, ou troque a extensão no arquivo, ou me avise que eu ajusto o site.
+- Enquanto a foto não estiver aqui, o site mostra um quadradinho rosa com o nome do arquivo (não quebra).
+
+Depois de salvar, recarregue o index.html (Ctrl+F5) que as fotos aparecem sozinhas.
