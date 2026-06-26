@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<title>Diagnóstico de Pele Coreano • Pele de Porcelana — Kim Dojun</title>
+<meta name="description" content="Descubra em 60 segundos qual erro está envelhecendo sua pele e receba o Protocolo Coreano de 21 dias personalizado." />
+
+<!--
+  ============================================================================
+  PELE DE PORCELANA — QUIZ DE VENDA (funil de 7 passos + página de resultado)
+  Personagem/Marca: Kim Dojun
+  ----------------------------------------------------------------------------
+  >>> O QUE VOCÊ PRECISA TROCAR ANTES DE PUBLICAR (procure por "TROQUE:"):
+   1. CHECKOUT  -> [OK] Hotmart configurado no href dos botoes .btn-checkout.
+        As UTMs do anuncio sao repassadas p/ a Utmify atribuir a venda, e o
+        InitiateCheckout dispara no clique. (No painel Utmify: icCSSMatch = .btn-checkout)
+   2. TROQUE:PRECO     -> preço cheio e preço com desconto
+   3. TROQUE:DEPOIMENTOS -> coloque depoimentos e fotos REAIS de clientes.
+        Os cards abaixo são MODELOS/placeholders. Não use foto de antes/depois
+        encenada como se fosse cliente real — além de quebrar a confiança,
+        propaganda enganosa é ilegal (CDC). Use prints/áudios/fotos reais
+        com autorização. Estrutura pronta, é só preencher.
+   4. TROQUE:EMAIL     -> conecte o envio do e-mail à sua ferramenta
+        (a função saveLead() já entrega o lead — plugue seu webhook/API).
+   5. PIXEL/UTMs       -> [OK] Utmify ja configurado (pixel no <head> + UTMs antes do </body>).
+  ============================================================================
+-->
+
+<!-- ============ UTMIFY • PIXEL (rastreio de conversão) ============ -->
+<script>
+  window.pixelId = "6a3eaa3664ca6ff70dba15f9";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#FFF7FA;
+  --bg-2:#FFEDF3;
+  --card:#FFFFFF;
+  --ink:#3B2B33;
+  --ink-soft:#86737C;
+  --pink:#F2789F;
+  --pink-deep:#E1568A;
+  --pink-soft:#FCE2EC;
+  --pink-line:#F6D2DF;
+  --gold:#F5B301;
+  --green:#3FB68B;
+  --cta:linear-gradient(135deg,#FF7AA6 0%,#FF96BD 55%,#FFB3CD 100%);
+  --cta-hover:linear-gradient(135deg,#FF6699 0%,#FF85B0 100%);
+  --radius:22px;
+  --radius-sm:14px;
+  --shadow:0 22px 50px -22px rgba(225,86,138,.45);
+  --shadow-soft:0 10px 30px -16px rgba(225,86,138,.35);
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Poppins',sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(1200px 600px at 50% -10%, #FFE3EE 0%, rgba(255,227,238,0) 60%),
+    linear-gradient(180deg,var(--bg) 0%, var(--bg-2) 100%);
+  background-attachment:fixed;
+  line-height:1.55;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+h1,h2,h3,.serif{font-family:'Fraunces',serif;line-height:1.12;letter-spacing:-.01em}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer;border:none}
+
+/* ---------- App shell ---------- */
+.app{max-width:560px;margin:0 auto;padding:18px 18px 40px;min-height:100vh}
+.screen{display:none;animation:fade .5s ease both}
+.screen.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* ---------- Top bar / progress ---------- */
+.topbar{display:flex;align-items:center;gap:12px;margin:4px 0 22px;min-height:34px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:600;font-size:15px;color:var(--pink-deep)}
+.brand .dot{width:30px;height:30px;border-radius:50%;background:var(--cta);display:grid;place-items:center;color:#fff;font-family:'Fraunces',serif;font-weight:700;box-shadow:var(--shadow-soft)}
+.brand small{display:block;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);font-weight:500;margin-top:-2px}
+.progress-wrap{flex:1;display:none;align-items:center;gap:10px}
+.progress-wrap.show{display:flex}
+.progress{flex:1;height:8px;background:var(--pink-soft);border-radius:99px;overflow:hidden}
+.progress span{display:block;height:100%;width:0;background:var(--cta);border-radius:99px;transition:width .5s cubic-bezier(.4,0,.2,1)}
+.progress-pct{font-size:12px;font-weight:600;color:var(--pink-deep);min-width:34px;text-align:right}
+
+/* ---------- Landing ---------- */
+.hero{text-align:center;padding:6px 0}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--pink-line);color:var(--pink-deep);font-size:12.5px;font-weight:600;padding:8px 15px;border-radius:99px;box-shadow:var(--shadow-soft);margin-bottom:22px}
+.eyebrow b{color:var(--ink)}
+.hero h1{font-size:clamp(28px,7.6vw,40px);font-weight:600;margin-bottom:18px}
+.hero h1 .hl{background:linear-gradient(120deg,var(--pink-deep),#FF8FB0);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero p.sub{font-size:16px;color:var(--ink-soft);max-width:440px;margin:0 auto 26px}
+.hero-art{width:150px;height:150px;margin:8px auto 26px;border-radius:50%;background:
+  radial-gradient(circle at 35% 30%, #fff 0%, #FFE3EE 45%, #FFC9DD 100%);
+  display:grid;place-items:center;box-shadow:0 30px 60px -28px rgba(225,86,138,.6), inset 0 0 0 8px rgba(255,255,255,.55);position:relative}
+.hero-art::after{content:"";position:absolute;inset:14px;border-radius:50%;border:1px dashed rgba(225,86,138,.35)}
+.hero-art span{font-size:62px;filter:drop-shadow(0 8px 14px rgba(225,86,138,.35))}
+.trust-row{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:24px;color:var(--ink-soft);font-size:12.5px}
+.trust-row b{color:var(--ink)}
+.stars{color:var(--gold);letter-spacing:1px}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;
+  background:var(--cta);color:#fff;font-weight:600;font-size:17px;
+  padding:18px 22px;border-radius:99px;box-shadow:var(--shadow);
+  transition:transform .15s ease, box-shadow .2s ease, filter .2s ease;
+  position:relative;overflow:hidden;text-decoration:none;
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.03)}
+.btn:active{transform:translateY(0) scale(.99)}
+.btn.pulse{animation:pulse 2.2s infinite}
+@keyframes pulse{0%,100%{box-shadow:var(--shadow)}50%{box-shadow:0 22px 50px -16px rgba(225,86,138,.7)}}
+.btn .arrow{font-size:18px;transition:transform .2s}
+.btn:hover .arrow{transform:translateX(4px)}
+.btn-ghost{background:none;color:var(--ink-soft);font-size:14px;font-weight:500;padding:10px;width:auto}
+.btn-ghost:hover{color:var(--pink-deep)}
+
+/* ---------- Questions ---------- */
+.q-head{text-align:center;margin-bottom:24px}
+.q-step{font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--pink);margin-bottom:10px}
+.q-head h2{font-size:clamp(22px,5.6vw,28px);font-weight:600}
+.q-sub{color:var(--ink-soft);font-size:14.5px;margin-top:8px}
+.options{display:flex;flex-direction:column;gap:12px}
+.options.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.opt{
+  display:flex;align-items:center;gap:14px;text-align:left;width:100%;
+  background:var(--card);border:1.8px solid var(--pink-line);border-radius:var(--radius-sm);
+  padding:17px 18px;font-size:15.5px;font-weight:500;color:var(--ink);
+  transition:all .18s ease;box-shadow:var(--shadow-soft);
+}
+.options.grid .opt{flex-direction:column;text-align:center;gap:8px;padding:20px 12px}
+.opt .ico{font-size:22px;line-height:1}
+.opt .tick{margin-left:auto;width:24px;height:24px;border-radius:50%;border:2px solid var(--pink-line);flex:0 0 auto;display:grid;place-items:center;transition:all .18s}
+.options.grid .opt .tick{display:none}
+.opt:hover{border-color:var(--pink);transform:translateY(-2px)}
+.opt.sel{border-color:var(--pink-deep);background:linear-gradient(180deg,#fff,#FFF1F6);box-shadow:0 14px 30px -14px rgba(225,86,138,.55)}
+.opt.sel .tick{background:var(--cta);border-color:transparent;color:#fff}
+.opt.sel .tick::after{content:"✓";font-size:13px;font-weight:700}
+.q-nav{display:flex;justify-content:center;margin-top:22px}
+.note{display:flex;gap:9px;align-items:flex-start;background:#fff;border:1px solid var(--pink-line);border-radius:14px;padding:12px 14px;font-size:12.5px;color:var(--ink-soft);margin-top:18px}
+.note b{color:var(--ink)}
+
+/* ---------- Email ---------- */
+.field{margin-bottom:14px}
+.field label{display:block;font-size:13px;font-weight:600;margin-bottom:7px;color:var(--ink)}
+.field input{
+  width:100%;background:#fff;border:1.8px solid var(--pink-line);border-radius:14px;
+  padding:16px 16px;font-size:16px;font-family:inherit;color:var(--ink);transition:border .18s, box-shadow .18s;
+}
+.field input:focus{outline:none;border-color:var(--pink);box-shadow:0 0 0 4px var(--pink-soft)}
+.field .err{color:#e0356b;font-size:12.5px;margin-top:6px;display:none}
+.field.invalid .err{display:block}
+.field.invalid input{border-color:#f4a6c0}
+.privacy{display:flex;gap:8px;align-items:center;justify-content:center;font-size:12px;color:var(--ink-soft);margin-top:14px}
+
+/* ---------- Loading ---------- */
+#screen-loading{text-align:center;padding-top:48px}
+.ring{width:120px;height:120px;margin:0 auto 30px;position:relative}
+.ring svg{transform:rotate(-90deg)}
+.ring .pct{position:absolute;inset:0;display:grid;place-items:center;font-family:'Fraunces',serif;font-size:30px;font-weight:700;color:var(--pink-deep)}
+.load-msg{min-height:58px;font-size:17px;font-weight:500;transition:opacity .35s}
+.load-list{margin:28px auto 0;max-width:330px;text-align:left;display:flex;flex-direction:column;gap:12px}
+.load-item{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--ink-soft);opacity:.35;transition:opacity .4s}
+.load-item.done{opacity:1;color:var(--ink)}
+.load-item .b{width:22px;height:22px;border-radius:50%;border:2px solid var(--pink-line);display:grid;place-items:center;flex:0 0 auto}
+.load-item.done .b{background:var(--green);border-color:transparent;color:#fff}
+.load-item.done .b::after{content:"✓";font-size:12px}
+
+/* ================= RESULT PAGE ================= */
+#screen-result{animation:fade .6s ease both}
+.r-hero{text-align:center;background:linear-gradient(180deg,#fff, #FFF3F8);border:1px solid var(--pink-line);border-radius:var(--radius);padding:26px 22px;box-shadow:var(--shadow-soft);margin-bottom:18px}
+.badge-done{display:inline-flex;align-items:center;gap:7px;background:#EAF8F1;color:#1F9D6B;font-size:12.5px;font-weight:600;padding:7px 14px;border-radius:99px;margin-bottom:14px}
+.r-hero h2{font-size:clamp(23px,6vw,30px);font-weight:600;margin-bottom:8px}
+.r-hero h2 .hl{color:var(--pink-deep)}
+.r-hero p{color:var(--ink-soft);font-size:14.5px}
+
+.section{background:var(--card);border:1px solid var(--pink-line);border-radius:var(--radius);padding:24px 22px;box-shadow:var(--shadow-soft);margin-bottom:18px}
+.kicker{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--pink);margin-bottom:10px}
+.section h3{font-size:22px;font-weight:600;margin-bottom:14px}
+.section p{color:#5d4d54;font-size:15px;margin-bottom:12px}
+.section p .em{color:var(--pink-deep);font-weight:600}
+
+.factor{display:flex;gap:14px;padding:16px 0;border-bottom:1px dashed var(--pink-line)}
+.factor:last-child{border-bottom:none;padding-bottom:0}
+.factor .num{flex:0 0 auto;width:34px;height:34px;border-radius:50%;background:var(--pink-soft);color:var(--pink-deep);font-family:'Fraunces',serif;font-weight:700;display:grid;place-items:center}
+.factor h4{font-size:15.5px;font-weight:600;margin-bottom:3px}
+.factor p{font-size:13.8px;color:var(--ink-soft);margin:0}
+
+/* Solution */
+.sol-card{background:linear-gradient(160deg,#FFF4F8,#FFE9F1);border:1px solid var(--pink-line)}
+.steps3{display:flex;flex-direction:column;gap:12px;margin-top:6px}
+.s3{display:flex;gap:13px;align-items:flex-start;background:#fff;border-radius:14px;padding:14px;box-shadow:var(--shadow-soft)}
+.s3 .n{flex:0 0 auto;width:28px;height:28px;border-radius:8px;background:var(--cta);color:#fff;font-weight:700;display:grid;place-items:center;font-size:14px}
+.s3 b{font-size:14.5px}
+.s3 p{font-size:13px;color:var(--ink-soft);margin:2px 0 0}
+.product-tag{display:flex;align-items:center;gap:12px;margin-top:18px;background:#fff;border-radius:14px;padding:14px;border:1px solid var(--pink-line)}
+.product-tag .ic{width:46px;height:46px;border-radius:12px;background:radial-gradient(circle at 35% 30%,#fff,#FFD3E2);display:grid;place-items:center;font-size:24px}
+.product-tag b{font-size:15px}
+.product-tag small{color:var(--ink-soft);font-size:12.5px}
+
+/* Testimonials */
+.tcar{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 14px;margin:0 -4px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.tcar::-webkit-scrollbar{display:none}
+.tcard{scroll-snap-align:center;flex:0 0 86%;background:#fff;border:1px solid var(--pink-line);border-radius:18px;box-shadow:var(--shadow-soft);overflow:hidden}
+.tcard .ba{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--pink-line)}
+.tcard .ba div{aspect-ratio:1/1;display:grid;place-items:center;background:linear-gradient(160deg,#FFF0F6,#FFE0EC);color:var(--pink-deep);font-size:12px;font-weight:600;text-align:center;position:relative}
+.tcard .ba div span{opacity:.75}
+.tcard .ba .lbl{position:absolute;top:8px;left:8px;background:rgba(255,255,255,.85);font-size:10px;padding:3px 8px;border-radius:99px;font-weight:700;letter-spacing:.04em}
+.tbody{padding:15px 16px 18px}
+.tbody .stars{font-size:14px;margin-bottom:7px}
+.tbody p{font-size:13.6px;color:#5d4d54;margin-bottom:10px}
+.tbody .who{display:flex;align-items:center;gap:9px;font-size:12.5px}
+.tbody .who .av{width:30px;height:30px;border-radius:50%;background:var(--cta);color:#fff;display:grid;place-items:center;font-weight:600;font-size:13px}
+.tbody .who b{display:block;font-size:13px}
+.tbody .who small{color:var(--ink-soft)}
+.tbody .verified{margin-left:auto;color:var(--green);font-size:11.5px;font-weight:600}
+.dots{display:flex;justify-content:center;gap:7px;margin-top:6px}
+.dots i{width:7px;height:7px;border-radius:50%;background:var(--pink-line);transition:all .25s;cursor:pointer}
+.dots i.on{background:var(--pink);width:20px;border-radius:99px}
+
+/* Offer */
+.offer{text-align:center;background:linear-gradient(180deg,#fff,#FFF2F7);border:2px solid var(--pink)}
+.offer h3{font-size:24px}
+.includes{text-align:left;margin:18px 0;display:flex;flex-direction:column;gap:11px}
+.inc{display:flex;gap:11px;align-items:flex-start;font-size:14.3px}
+.inc .ck{flex:0 0 auto;width:22px;height:22px;border-radius:50%;background:#EAF8F1;color:var(--green);display:grid;place-items:center;font-size:12px;font-weight:700;margin-top:1px}
+.inc b{color:var(--ink)}
+.inc s{color:var(--ink-soft)}
+.inc .free{color:var(--green);font-weight:700;font-size:12px}
+.price-box{background:#fff;border:1px dashed var(--pink);border-radius:16px;padding:18px;margin:6px 0 18px}
+.price-old{color:var(--ink-soft);font-size:15px}
+.price-old s{opacity:.8}
+.price-now{font-family:'Fraunces',serif;font-size:46px;font-weight:700;color:var(--pink-deep);line-height:1}
+.price-now small{font-size:18px;vertical-align:top}
+.price-tag{font-size:13px;color:var(--ink-soft);margin-top:4px}
+.price-pill{display:inline-block;background:#FFE7EF;color:var(--pink-deep);font-weight:700;font-size:12.5px;padding:5px 12px;border-radius:99px;margin-bottom:12px}
+.secure{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:14px;font-size:11.5px;color:var(--ink-soft)}
+.secure span{display:flex;align-items:center;gap:5px}
+
+/* Guarantee */
+.guar{display:flex;gap:16px;align-items:center;background:linear-gradient(160deg,#F4FBF7,#EAF8F1);border:1px solid #CDEBDD}
+.guar .seal{flex:0 0 auto;width:64px;height:64px;border-radius:50%;background:#fff;border:2px solid var(--green);display:grid;place-items:center;font-size:13px;font-weight:700;color:var(--green);text-align:center;line-height:1.05}
+.guar h4{font-size:16px;margin-bottom:4px}
+.guar p{font-size:13px;color:var(--ink-soft);margin:0}
+
+/* Countdown */
+.urg{text-align:center;background:linear-gradient(160deg,#FFF1F4,#FFE3EA);border:1px solid #F6C6D2}
+.urg .kicker{color:#E0356B}
+.urg p{font-size:14px}
+.clock{display:flex;justify-content:center;gap:10px;margin:14px 0 4px}
+.clock .u{background:#fff;border:1px solid var(--pink-line);border-radius:14px;padding:10px 14px;min-width:64px;box-shadow:var(--shadow-soft)}
+.clock .u b{font-family:'Fraunces',serif;font-size:30px;color:var(--pink-deep);display:block;line-height:1}
+.clock .u small{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.clock .sep{font-size:26px;color:var(--pink);align-self:center;font-weight:700}
+
+/* FAQ */
+.faq-item{border-bottom:1px solid var(--pink-line)}
+.faq-item:last-child{border-bottom:none}
+.faq-q{display:flex;align-items:center;gap:12px;width:100%;background:none;text-align:left;padding:16px 2px;font-size:15px;font-weight:600;color:var(--ink)}
+.faq-q .pm{margin-left:auto;flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:var(--pink-soft);color:var(--pink-deep);display:grid;place-items:center;font-size:18px;transition:transform .25s}
+.faq-q.open .pm{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.faq-a p{font-size:14px;color:var(--ink-soft);padding:0 2px 16px}
+
+/* final cta */
+.final{text-align:center;padding:8px 0 0}
+.final h3{font-size:24px;margin-bottom:8px}
+.final p{color:var(--ink-soft);font-size:14.5px;margin-bottom:18px}
+
+/* sticky bar */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:40;transform:translateY(120%);transition:transform .35s ease;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-top:1px solid var(--pink-line);box-shadow:0 -10px 30px -18px rgba(225,86,138,.5)}
+.sticky.show{transform:translateY(0)}
+.sticky .inner{max-width:560px;margin:0 auto;display:flex;align-items:center;gap:12px}
+.sticky .pp{flex:0 0 auto}
+.sticky .pp s{font-size:12px;color:var(--ink-soft);display:block;line-height:1}
+.sticky .pp b{font-family:'Fraunces',serif;font-size:22px;color:var(--pink-deep)}
+.sticky .btn{font-size:15px;padding:14px 16px}
+
+footer{text-align:center;font-size:11.5px;color:var(--ink-soft);padding:24px 10px 30px;line-height:1.7}
+footer a{color:var(--pink-deep);text-decoration:none}
+
+/* Exit modal */
+.modal-bg{position:fixed;inset:0;z-index:60;background:rgba(59,43,51,.5);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;padding:22px;animation:fade .3s ease}
+.modal-bg.show{display:flex}
+.modal{background:#fff;border-radius:24px;max-width:380px;width:100%;padding:30px 24px;text-align:center;box-shadow:0 30px 70px -20px rgba(0,0,0,.4);position:relative;animation:pop .35s cubic-bezier(.34,1.56,.64,1)}
+@keyframes pop{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
+.modal .x{position:absolute;top:14px;right:16px;background:none;font-size:24px;color:var(--ink-soft);line-height:1}
+.modal .emo{font-size:46px;margin-bottom:8px}
+.modal h3{font-size:23px;margin-bottom:8px}
+.modal p{font-size:14px;color:var(--ink-soft);margin-bottom:18px}
+.confetti{display:none}
+
+@media(min-width:480px){.tcard{flex-basis:60%}}
+</style>
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ===== TOP BAR ===== -->
+  <div class="topbar">
+    <div class="brand">
+      <span class="dot">P</span>
+      <div>Pele de Porcelana<small>by Kim Dojun • K-Beauty</small></div>
+    </div>
+    <div class="progress-wrap" id="progWrap">
+      <div class="progress"><span id="progBar"></span></div>
+      <div class="progress-pct" id="progPct">0%</div>
+    </div>
+  </div>
+
+  <!-- ===== PASSO 1 — LANDING ===== -->
+  <section class="screen active" id="screen-landing">
+    <div class="hero">
+      <div class="eyebrow">⏱️ Diagnóstico gratuito • <b>60 segundos</b></div>
+      <div class="hero-art"><span>🌸</span></div>
+      <h1>Descubra qual é o <span class="hl">erro que está envelhecendo</span> a sua pele</h1>
+      <p class="sub">Responda 5 perguntas rápidas e receba o <b>Protocolo Coreano de 21 dias personalizado</b> para o seu tipo de pele — feito para mulheres maduras.</p>
+      <button class="btn pulse" onclick="start()">FAZER MEU DIAGNÓSTICO <span class="arrow">→</span></button>
+      <div class="trust-row">
+        <span><b>+12.847</b> mulheres</span>
+        <span class="stars">★★★★★ <b style="color:var(--ink)">4,9</b></span>
+        <span>🔒 100% gratuito</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PASSO 2 — IDADE ===== -->
+  <section class="screen" id="screen-q1">
+    <div class="q-head">
+      <div class="q-step">Pergunta 1 de 5</div>
+      <h2>Qual a sua idade?</h2>
+      <p class="q-sub">A pele muda muito a cada faixa — isso define o seu protocolo.</p>
+    </div>
+    <div class="options" data-q="idade">
+      <button class="opt" data-v="45-49"><span class="ico">🌷</span> 45 a 49 anos <span class="tick"></span></button>
+      <button class="opt" data-v="50-54"><span class="ico">🌸</span> 50 a 54 anos <span class="tick"></span></button>
+      <button class="opt" data-v="55-59"><span class="ico">🌺</span> 55 a 59 anos <span class="tick"></span></button>
+      <button class="opt" data-v="60-64"><span class="ico">🌹</span> 60 a 64 anos <span class="tick"></span></button>
+      <button class="opt" data-v="65+"><span class="ico">💐</span> 65 anos ou mais <span class="tick"></span></button>
+    </div>
+    <div class="q-nav"><button class="btn-ghost" onclick="back()">← Voltar</button></div>
+  </section>
+
+  <!-- ===== PASSO 3 — MAIOR DOR ===== -->
+  <section class="screen" id="screen-q2">
+    <div class="q-head">
+      <div class="q-step">Pergunta 2 de 5</div>
+      <h2>O que mais te incomoda<br>na sua pele hoje?</h2>
+      <p class="q-sub">Escolha o que mais pesa para você.</p>
+    </div>
+    <div class="options grid" data-q="dor">
+      <button class="opt" data-v="rugas"><span class="ico">〰️</span> Rugas e linhas</button>
+      <button class="opt" data-v="manchas"><span class="ico">🟤</span> Manchas</button>
+      <button class="opt" data-v="flacidez"><span class="ico">🎈</span> Flacidez</button>
+      <button class="opt" data-v="seca"><span class="ico">🏜️</span> Pele seca</button>
+      <button class="opt" data-v="opaca"><span class="ico">🌥️</span> Pele opaca / sem brilho</button>
+      <button class="opt" data-v="varios"><span class="ico">🌀</span> Vários problemas juntos</button>
+    </div>
+    <div class="q-nav"><button class="btn-ghost" onclick="back()">← Voltar</button></div>
+  </section>
+
+  <!-- ===== PASSO 4 — JÁ TENTOU ===== -->
+  <section class="screen" id="screen-q3">
+    <div class="q-head">
+      <div class="q-step">Pergunta 3 de 5</div>
+      <h2>Você já gastou dinheiro com<br>produtos que não funcionaram?</h2>
+      <p class="q-sub">Pode ser sincera — é exatamente isso que vamos corrigir.</p>
+    </div>
+    <div class="options" data-q="tentou">
+      <button class="opt" data-v="muito"><span class="ico">💸</span> Sim, muito dinheiro <span class="tick"></span></button>
+      <button class="opt" data-v="alguns"><span class="ico">🛍️</span> Sim, alguns produtos <span class="tick"></span></button>
+      <button class="opt" data-v="quase"><span class="ico">🤏</span> Quase nada <span class="tick"></span></button>
+      <button class="opt" data-v="nunca"><span class="ico">🌱</span> Nunca tentei nada <span class="tick"></span></button>
+    </div>
+    <div class="q-nav"><button class="btn-ghost" onclick="back()">← Voltar</button></div>
+  </section>
+
+  <!-- ===== PASSO 5 — TEMPO ===== -->
+  <section class="screen" id="screen-q4">
+    <div class="q-head">
+      <div class="q-step">Pergunta 4 de 5</div>
+      <h2>Quanto tempo você tem por dia<br>para cuidar da pele?</h2>
+      <p class="q-sub">Seu protocolo será ajustado a essa rotina.</p>
+    </div>
+    <div class="options" data-q="tempo">
+      <button class="opt" data-v="5"><span class="ico">⚡</span> Só 5 minutinhos <span class="tick"></span></button>
+      <button class="opt" data-v="10"><span class="ico">⏰</span> Uns 10 minutos <span class="tick"></span></button>
+      <button class="opt" data-v="15-20"><span class="ico">🕐</span> 15 a 20 minutos <span class="tick"></span></button>
+      <button class="opt" data-v="mais"><span class="ico">🛁</span> Mais que isso <span class="tick"></span></button>
+    </div>
+    <div class="q-nav"><button class="btn-ghost" onclick="back()">← Voltar</button></div>
+  </section>
+
+  <!-- ===== PASSO 6 — CONDIÇÃO ===== -->
+  <section class="screen" id="screen-q5">
+    <div class="q-head">
+      <div class="q-step">Pergunta 5 de 5</div>
+      <h2>Você tem alguma<br>dessas condições?</h2>
+      <p class="q-sub">Para deixar seu protocolo 100% seguro para você.</p>
+    </div>
+    <div class="options" data-q="condicao">
+      <button class="opt" data-v="diabetes"><span class="ico">🩸</span> Diabetes <span class="tick"></span></button>
+      <button class="opt" data-v="pressao"><span class="ico">❤️</span> Pressão alta <span class="tick"></span></button>
+      <button class="opt" data-v="sensivel"><span class="ico">🌡️</span> Pele sensível <span class="tick"></span></button>
+      <button class="opt" data-v="rosacea"><span class="ico">🌹</span> Rosácea <span class="tick"></span></button>
+      <button class="opt" data-v="nenhuma"><span class="ico">✅</span> Nenhuma dessas <span class="tick"></span></button>
+    </div>
+    <div class="note">🛡️ <span><b>Suas respostas são privadas.</b> O protocolo é cosmético e natural. Em caso de condição de saúde ou pele reativa, recomendamos confirmar com seu médico ou dermatologista.</span></div>
+    <div class="q-nav"><button class="btn-ghost" onclick="back()">← Voltar</button></div>
+  </section>
+
+  <!-- ===== PASSO 7 — EMAIL ===== -->
+  <section class="screen" id="screen-email">
+    <div class="q-head">
+      <div class="q-step">Último passo 🎉</div>
+      <h2>Seu diagnóstico<br>está pronto!</h2>
+      <p class="q-sub">Para onde enviamos o seu diagnóstico personalizado e suas receitas coreanas?</p>
+    </div>
+    <div class="field" id="fName">
+      <label>Seu primeiro nome</label>
+      <input type="text" id="inName" placeholder="Como podemos te chamar?" autocomplete="given-name" />
+    </div>
+    <div class="field" id="fEmail">
+      <label>Seu melhor e-mail</label>
+      <input type="email" id="inEmail" placeholder="seu@email.com" autocomplete="email" inputmode="email" />
+      <div class="err">Digite um e-mail válido para receber seu diagnóstico.</div>
+    </div>
+    <button class="btn pulse" onclick="submitEmail()">VER MEU DIAGNÓSTICO <span class="arrow">→</span></button>
+    <div class="privacy">🔒 Seus dados estão seguros. Sem spam — só o seu protocolo.</div>
+    <div class="q-nav"><button class="btn-ghost" onclick="back()">← Voltar</button></div>
+  </section>
+
+  <!-- ===== LOADING / ANÁLISE ===== -->
+  <section class="screen" id="screen-loading">
+    <div class="q-step" style="text-align:center">Analisando seu perfil</div>
+    <div class="ring">
+      <svg width="120" height="120">
+        <circle cx="60" cy="60" r="52" fill="none" stroke="#FCE2EC" stroke-width="10"/>
+        <circle id="ringFg" cx="60" cy="60" r="52" fill="none" stroke="url(#g)" stroke-width="10" stroke-linecap="round" stroke-dasharray="326.7" stroke-dashoffset="326.7"/>
+        <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF7AA6"/><stop offset="1" stop-color="#FFB3CD"/></linearGradient></defs>
+      </svg>
+      <div class="pct" id="ringPct">0%</div>
+    </div>
+    <div class="load-msg" id="loadMsg">Analisando suas respostas...</div>
+    <div class="load-list">
+      <div class="load-item" id="li0"><span class="b"></span> Analisando suas respostas</div>
+      <div class="load-item" id="li1"><span class="b"></span> Comparando com 12.847 mulheres da sua faixa</div>
+      <div class="load-item" id="li2"><span class="b"></span> Cruzando com o protocolo coreano de 21 dias</div>
+      <div class="load-item" id="li3"><span class="b"></span> Selecionando as receitas ideais para você</div>
+    </div>
+  </section>
+
+  <!-- ===== PÁGINA DE RESULTADO ===== -->
+  <section class="screen" id="screen-result">
+
+    <!-- topo -->
+    <div class="r-hero">
+      <span class="badge-done">✓ Diagnóstico concluído</span>
+      <h2 id="rTitle">Diagnóstico completo</h2>
+      <p id="rSubtitle">Veja abaixo o que está acontecendo com a sua pele — e o caminho exato para reverter.</p>
+    </div>
+
+    <!-- Bloco 1 — DIAGNÓSTICO -->
+    <div class="section">
+      <span class="kicker">O seu diagnóstico</span>
+      <h3 id="diagH3">O que está por trás da sua pele hoje</h3>
+      <p id="diagIntro"></p>
+      <div id="factors"></div>
+      <div class="note" style="margin-top:18px">💡 <span>A boa notícia: <b>os 3 fatores são reversíveis</b> — quando tratados na ordem certa.</span></div>
+    </div>
+
+    <!-- Bloco 2 — SOLUÇÃO -->
+    <div class="section sol-card">
+      <span class="kicker">A solução</span>
+      <h3>O Protocolo Coreano de 21 Dias</h3>
+      <p>As coreanas têm a pele de porcelana mais invejada do mundo não por genética — mas por <span class="em">método e ordem</span>. O protocolo resolve os seus 3 fatores exatamente nesta sequência:</p>
+      <div class="steps3">
+        <div class="s3"><span class="n">1</span><div><b>Dias 1–7 · Restaurar</b><p>Reconstrói a barreira da pele e devolve a hidratação profunda que ela perdeu.</p></div></div>
+        <div class="s3"><span class="n">2</span><div><b>Dias 8–14 · Renovar</b><p>Acelera a renovação celular e estimula colágeno com ativos suaves e acessíveis.</p></div></div>
+        <div class="s3"><span class="n">3</span><div><b>Dias 15–21 · Iluminar</b><p>Uniformiza o tom e revela o "glass skin" — aquele viço de vidro.</p></div></div>
+      </div>
+      <div class="product-tag">
+        <span class="ic">🧴</span>
+        <div><b>Pele de Porcelana</b><br><small id="prodFor">Protocolo coreano personalizado para o seu caso</small></div>
+      </div>
+    </div>
+
+    <!-- Bloco 3 — PROVAS SOCIAIS -->
+    <div class="section">
+      <span class="kicker">Resultados reais</span>
+      <h3>Mulheres como você, em 21 dias</h3>
+      <p style="margin-bottom:16px">Veja a transformação de quem seguiu o protocolo direitinho:</p>
+      <!-- TROQUE:DEPOIMENTOS — substitua os cards por depoimentos e FOTOS REAIS (com autorização). -->
+      <div class="tcar" id="tcar">
+
+        <div class="tcard">
+          <div class="ba"><div><span class="lbl">ANTES</span><span>📷 foto antes</span></div><div><span class="lbl" style="color:var(--green)">DEPOIS</span><span>📷 foto depois</span></div></div>
+          <div class="tbody"><div class="stars">★★★★★</div><p>"Tinha a pele super seca e marcada. Em 3 semanas a textura mudou — minhas amigas perguntaram o que eu fiz."</p><div class="who"><span class="av">M</span><div><b>Marta, 58</b><small>Curitiba/PR</small></div><span class="verified">✓ verificado</span></div></div>
+        </div>
+
+        <div class="tcard">
+          <div class="ba"><div><span class="lbl">ANTES</span><span>📷 foto antes</span></div><div><span class="lbl" style="color:var(--green)">DEPOIS</span><span>📷 foto depois</span></div></div>
+          <div class="tbody"><div class="stars">★★★★★</div><p>"As manchas que eu escondia com base clarearam muito. Hoje saio de casa de cara lavada e me sinto bem."</p><div class="who"><span class="av">R</span><div><b>Rosângela, 61</b><small>Salvador/BA</small></div><span class="verified">✓ verificado</span></div></div>
+        </div>
+
+        <div class="tcard">
+          <div class="ba"><div><span class="lbl">ANTES</span><span>📷 foto antes</span></div><div><span class="lbl" style="color:var(--green)">DEPOIS</span><span>📷 foto depois</span></div></div>
+          <div class="tbody"><div class="stars">★★★★★</div><p>"Achei que com 65 não tinha mais jeito. As linhas suavizaram e a pele ficou com um viço que eu não via há anos."</p><div class="who"><span class="av">C</span><div><b>Cleusa, 65</b><small>Belo Horizonte/MG</small></div><span class="verified">✓ verificado</span></div></div>
+        </div>
+
+        <div class="tcard">
+          <div class="ba"><div><span class="lbl">ANTES</span><span>📷 foto antes</span></div><div><span class="lbl" style="color:var(--green)">DEPOIS</span><span>📷 foto depois</span></div></div>
+          <div class="tbody"><div class="stars">★★★★★</div><p>"O melhor: faço em 10 minutos com coisas que já tinha em casa. Parei de gastar fortuna em creme que não funcionava."</p><div class="who"><span class="av">S</span><div><b>Sônia, 53</b><small>Campinas/SP</small></div><span class="verified">✓ verificado</span></div></div>
+        </div>
+
+        <div class="tcard">
+          <div class="ba"><div><span class="lbl">ANTES</span><span>📷 foto antes</span></div><div><span class="lbl" style="color:var(--green)">DEPOIS</span><span>📷 foto depois</span></div></div>
+          <div class="tbody"><div class="stars">★★★★★</div><p>"A flacidez do rosto deu uma firmada visível. Meu marido reparou antes de eu contar que estava fazendo o protocolo."</p><div class="who"><span class="av">I</span><div><b>Ivone, 59</b><small>Porto Alegre/RS</small></div><span class="verified">✓ verificado</span></div></div>
+        </div>
+
+        <div class="tcard">
+          <div class="ba"><div><span class="lbl">ANTES</span><span>📷 foto antes</span></div><div><span class="lbl" style="color:var(--green)">DEPOIS</span><span>📷 foto depois</span></div></div>
+          <div class="tbody"><div class="stars">★★★★★</div><p>"Pele opaca e cansada virou pele iluminada. Sigo o passo a passo do Kim Dojun e funciona de verdade."</p><div class="who"><span class="av">L</span><div><b>Lúcia, 50</b><small>Recife/PE</small></div><span class="verified">✓ verificado</span></div></div>
+        </div>
+
+      </div>
+      <div class="dots" id="dots"></div>
+    </div>
+
+    <!-- Bloco 4 — OFERTA -->
+    <div class="section offer" id="offer">
+      <span class="price-pill">🎁 Oferta do seu diagnóstico</span>
+      <h3>Seu Protocolo Personalizado<br>está pronto</h3>
+      <p style="margin-top:6px">Tudo o que você recebe hoje:</p>
+      <div class="includes">
+        <div class="inc"><span class="ck">✓</span><div><b>Protocolo Pele de Porcelana</b> — o passo a passo coreano completo de 21 dias <s>R$ 197</s></div></div>
+        <div class="inc"><span class="ck">✓</span><div><b>Bônus 1: Receitas Caseiras Coreanas</b> — máscaras e séruns com ingredientes que você acha no mercado <span class="free">GRÁTIS</span></div></div>
+        <div class="inc"><span class="ck">✓</span><div><b>Bônus 2: Rotina Express</b> — versões de 5, 10 e 15 min para encaixar no seu dia <span class="free">GRÁTIS</span></div></div>
+        <div class="inc"><span class="ck">✓</span><div><b>Bônus 3: O Que NÃO Usar Depois dos 50</b> — a lista de erros que envelhecem a pele <span class="free">GRÁTIS</span></div></div>
+        <div class="inc"><span class="ck">✓</span><div><b>Acesso vitalício + atualizações</b> — assista no celular, quando quiser <span class="free">GRÁTIS</span></div></div>
+      </div>
+
+      <!-- TROQUE:PRECO -->
+      <div class="price-box">
+        <div class="price-old">De <s>R$ 197,00</s> por apenas:</div>
+        <div class="price-now"><small>R$</small> 47<small>,00</small></div>
+        <div class="price-tag">ou 12x de R$ 4,79 • pagamento único, sem mensalidade</div>
+      </div>
+
+      <!-- Checkout Hotmart — href REAL p/ a Utmify detectar o clique e marcar InitiateCheckout -->
+      <a class="btn pulse btn-checkout" href="https://pay.hotmart.com/A106482994M?off=h2oaym8v&checkoutMode=10" id="ctaMain" onclick="icFire(this)">ACESSAR MEU PROTOCOLO AGORA <span class="arrow">→</span></a>
+      <div class="secure">
+        <span>🔒 Compra 100% segura</span>
+        <span>⚡ Acesso imediato</span>
+        <span>📱 Celular e computador</span>
+      </div>
+    </div>
+
+    <!-- Garantia -->
+    <div class="section guar">
+      <div class="seal">30<br>DIAS</div>
+      <div>
+        <h4>Garantia incondicional de 30 dias</h4>
+        <p>Faça o protocolo. Se em 30 dias você não amar o resultado, devolvemos 100% do seu dinheiro. O risco é todo nosso.</p>
+      </div>
+    </div>
+
+    <!-- Bloco 5 — URGÊNCIA -->
+    <div class="section urg">
+      <span class="kicker">⏳ Atenção</span>
+      <p>Esta oferta com desconto fica disponível por <b>15 minutos</b> a partir do seu diagnóstico:</p>
+      <div class="clock">
+        <div class="u"><b id="cMin">15</b><small>min</small></div>
+        <div class="sep">:</div>
+        <div class="u"><b id="cSec">00</b><small>seg</small></div>
+      </div>
+      <p style="margin-top:10px;font-size:12.5px;color:var(--ink-soft)">Depois disso, o valor volta para R$ 197.</p>
+    </div>
+
+    <!-- Bloco 6 — FAQ -->
+    <div class="section">
+      <span class="kicker">Perguntas frequentes</span>
+      <h3 style="margin-bottom:6px">Ainda com dúvida?</h3>
+      <div id="faq">
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Funciona para a minha idade? <span class="pm">+</span></button><div class="faq-a"><p>Sim. O protocolo foi desenhado justamente para a pele madura, de 45 aos 65+. Quanto mais maduro o tipo de pele, mais visível costuma ser a diferença, porque há mais o que restaurar.</p></div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Preciso comprar produtos caros importados? <span class="pm">+</span></button><div class="faq-a"><p>Não. A proposta é exatamente o contrário: você usa ingredientes acessíveis, encontrados em mercado e farmácia comum no Brasil. O segredo coreano está no método e na ordem, não no preço.</p></div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Em quanto tempo eu vejo resultado? <span class="pm">+</span></button><div class="faq-a"><p>A maioria nota a pele mais hidratada e macia já na primeira semana. As mudanças de viço, manchas e firmeza aparecem ao longo dos 21 dias, seguindo o passo a passo.</p></div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">E se não funcionar para mim? <span class="pm">+</span></button><div class="faq-a"><p>Você tem 30 dias de garantia incondicional. Se não gostar do resultado, é só pedir o reembolso e devolvemos 100% do valor, sem perguntas.</p></div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Como recebo o acesso? <span class="pm">+</span></button><div class="faq-a"><p>Na hora. Assim que o pagamento é confirmado, você recebe o acesso por e-mail e já pode começar pelo celular ou computador. O acesso é vitalício.</p></div></div>
+      </div>
+    </div>
+
+    <!-- Bloco 7 — REPETIÇÃO DO BOTÃO -->
+    <div class="final">
+      <h3>Sua pele de porcelana<br>começa hoje 🌸</h3>
+      <p>21 dias a partir de agora, você vai se olhar no espelho e agradecer por ter começado.</p>
+      <!-- Checkout Hotmart (.btn-checkout) -->
+      <a class="btn pulse btn-checkout" href="https://pay.hotmart.com/A106482994M?off=h2oaym8v&checkoutMode=10" onclick="icFire(this)">QUERO MEU PROTOCOLO AGORA <span class="arrow">→</span></a>
+      <div class="secure" style="margin-top:14px"><span>🔒 Pagamento seguro</span><span>↩️ 30 dias de garantia</span><span>⚡ Acesso imediato</span></div>
+    </div>
+
+    <footer>
+      Pele de Porcelana • Kim Dojun &nbsp;|&nbsp; <a href="#">Termos</a> · <a href="#">Privacidade</a> · <a href="#">Contato</a><br>
+      Resultados podem variar de pessoa para pessoa. Conteúdo educativo e cosmético — não substitui acompanhamento médico/dermatológico.
+    </footer>
+  </section>
+
+</div>
+
+<!-- Sticky CTA mobile (aparece no resultado) -->
+<div class="sticky" id="sticky">
+  <div class="inner">
+    <div class="pp"><s>R$ 197</s><b>R$ 47</b></div>
+    <a class="btn btn-checkout" href="https://pay.hotmart.com/A106482994M?off=h2oaym8v&checkoutMode=10" onclick="icFire(this)">QUERO AGORA →</a>
+  </div>
+</div>
+
+<!-- Exit intent -->
+<div class="modal-bg" id="exitModal">
+  <div class="modal">
+    <button class="x" onclick="closeExit()">×</button>
+    <div class="emo">🌸</div>
+    <h3>Espere! Seu diagnóstico<br>está quase pronto</h3>
+    <p>Você está a poucos segundos de descobrir o que está envelhecendo a sua pele. Não perca seu resultado personalizado.</p>
+    <button class="btn" onclick="closeExit()">CONTINUAR MEU DIAGNÓSTICO →</button>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   ESTADO
+   ============================================================ */
+const state = { idade:'', dor:'', tentou:'', tempo:'', condicao:'', name:'', email:'' };
+const flow = ['screen-landing','screen-q1','screen-q2','screen-q3','screen-q4','screen-q5','screen-email','screen-loading','screen-result'];
+const quizSteps = ['screen-q1','screen-q2','screen-q3','screen-q4','screen-q5','screen-email']; // contam na barra
+let idx = 0;
+
+const $ = s => document.querySelector(s);
+const show = id => {
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  $('#'+id).classList.add('active');
+  window.scrollTo({top:0,behavior:'instant'});
+  updateProgress(id);
+};
+function updateProgress(id){
+  const wrap = $('#progWrap');
+  const pos = quizSteps.indexOf(id);
+  if(pos === -1){ wrap.classList.remove('show'); return; }
+  wrap.classList.add('show');
+  const pct = Math.round(((pos+1)/quizSteps.length)*100);
+  $('#progBar').style.width = pct+'%';
+  $('#progPct').textContent = pct+'%';
+}
+
+function start(){ idx=1; show(flow[idx]); }
+function back(){ if(idx>0){ idx--; show(flow[idx]); } }
+
+/* ============================================================
+   OPÇÕES — seleção + auto-avanço
+   ============================================================ */
+document.querySelectorAll('.options').forEach(group=>{
+  const key = group.dataset.q;
+  group.querySelectorAll('.opt').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      group.querySelectorAll('.opt').forEach(b=>b.classList.remove('sel'));
+      btn.classList.add('sel');
+      state[key] = btn.dataset.v;
+      setTimeout(()=>{ idx++; show(flow[idx]); }, 360);
+    });
+  });
+});
+
+/* ============================================================
+   EMAIL
+   ============================================================ */
+function submitEmail(){
+  const name = $('#inName').value.trim();
+  const email = $('#inEmail').value.trim();
+  const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  if(!ok){ $('#fEmail').classList.add('invalid'); return; }
+  $('#fEmail').classList.remove('invalid');
+  state.name = name; state.email = email;
+  saveLead(state);
+  idx++; show(flow[idx]); // loading
+  runLoading();
+}
+$('#inEmail') && $('#inEmail').addEventListener('input',()=>$('#fEmail').classList.remove('invalid'));
+
+/* TROQUE:EMAIL — envie o lead para a sua ferramenta (webhook, ActiveCampaign, etc.) */
+function saveLead(data){
+  try{ localStorage.setItem('pdp_lead', JSON.stringify(data)); }catch(e){}
+  // Exemplo de integração (descomente e ajuste a URL):
+  // fetch('https://SEU-WEBHOOK', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+  // typeof fbq!=='undefined' && fbq('track','Lead');
+}
+
+/* ============================================================
+   LOADING / ANÁLISE
+   ============================================================ */
+const loadMsgs = [
+  'Analisando suas respostas...',
+  'Comparando com 12.847 mulheres na sua faixa etária...',
+  'Cruzando com o protocolo coreano de 21 dias...',
+  'Selecionando as receitas ideais para o seu caso...',
+  'Diagnóstico pronto! 🌸'
+];
+function runLoading(){
+  const ring = $('#ringFg'), total = 326.7;
+  let p = 0, mi = 0;
+  $('#ringPct').textContent='0%';
+  $('#loadMsg').textContent = loadMsgs[0];
+  ['li0','li1','li2','li3'].forEach(i=>$('#'+i).classList.remove('done'));
+
+  const tick = setInterval(()=>{
+    p += 2;
+    if(p>100) p=100;
+    ring.style.strokeDashoffset = total - (total*p/100);
+    $('#ringPct').textContent = p+'%';
+    if(p>=100){ clearInterval(tick); }
+  },95); // ~4.75s
+
+  // mensagens + checklist
+  const stages = [0,1,2,3,4];
+  let s=0;
+  const msgInt = setInterval(()=>{
+    s++;
+    if(s<loadMsgs.length){
+      const el=$('#loadMsg'); el.style.opacity=0;
+      setTimeout(()=>{ el.textContent=loadMsgs[s]; el.style.opacity=1; },180);
+      if(s-1>=0 && document.getElementById('li'+(s-1))) $('#li'+(s-1)).classList.add('done');
+    }
+    if(s>=loadMsgs.length-1){
+      clearInterval(msgInt);
+      $('#li3').classList.add('done');
+      setTimeout(buildResult, 700);
+    }
+  },1000);
+}
+
+/* ============================================================
+   DADOS DO DIAGNÓSTICO (personalização por DOR)
+   ============================================================ */
+const painLabel = {
+  rugas:'Rugas e Linhas de Expressão',
+  manchas:'Manchas e Tom Desigual',
+  flacidez:'Flacidez e Perda de Firmeza',
+  seca:'Ressecamento Profundo',
+  opaca:'Pele Opaca e Sem Viço',
+  varios:'Vários Sinais de Idade ao Mesmo Tempo'
+};
+const F = {
+  colageno:{t:'Queda acelerada de colágeno',d:'A partir dos 45, a pele perde cerca de 1% de colágeno por ano. Sem estímulo, a sustentação cede e as marcas se aprofundam.'},
+  barreira:{t:'Barreira de proteção enfraquecida',d:'A camada que segura a água na pele fica mais fina — e ela perde hidratação o dia inteiro, sem você perceber.'},
+  renovacao:{t:'Renovação celular mais lenta',d:'As células mortas se acumulam na superfície, deixando a pele opaca, áspera e "pesada".'},
+  melanina:{t:'Melanina desorganizada',d:'Anos de sol acumulado fazem a pigmentação se concentrar em manchas irregulares pelo rosto.'},
+  inflamacao:{t:'Microinflamação silenciosa',d:'O chamado "inflammaging" acelera o envelhecimento por dentro, sem dar sinais visíveis até ser tarde.'},
+  lipidios:{t:'Queda na produção natural de óleos',d:'A pele produz menos lipídios e fica repuxada, áspera e sem maciez, principalmente após o banho.'},
+  elastina:{t:'Fibras de elastina degradadas',d:'A elastina perde a capacidade de "voltar ao lugar" — e surge a flacidez no contorno do rosto e no pescoço.'}
+};
+const painFactors = {
+  rugas:['colageno','inflamacao','barreira'],
+  manchas:['melanina','renovacao','inflamacao'],
+  flacidez:['colageno','elastina','inflamacao'],
+  seca:['barreira','lipidios','renovacao'],
+  opaca:['renovacao','barreira','inflamacao'],
+  varios:['colageno','barreira','renovacao']
+};
+const tempoLabel = {'5':'5 minutos por dia','10':'10 minutos por dia','15-20':'15 a 20 minutos por dia','mais':'o tempo que precisar'};
+
+/* ============================================================
+   MONTAR RESULTADO
+   ============================================================ */
+function buildResult(){
+  const nome = state.name ? state.name : '';
+  const dor = state.dor || 'varios';
+  const pl = painLabel[dor];
+  const idade = state.idade || '';
+
+  // título topo
+  $('#rTitle').innerHTML = nome
+    ? `Pronto, <span class="hl">${escapeHtml(nome)}</span> — aqui está o seu diagnóstico`
+    : `Diagnóstico para mulheres de <span class="hl">${idade||'45+'}</span>`;
+  $('#rSubtitle').innerHTML = `Foco principal: <b>${pl}</b>${idade?` · faixa ${idade} anos`:''}.`;
+
+  // intro do diagnóstico
+  $('#diagH3').textContent = `Por que a sua pele está com ${pl.toLowerCase()}`;
+  $('#diagIntro').innerHTML = `Com base nas suas respostas, identificamos que a sua pele apresenta <span class="em">${pl.toLowerCase()}</span> principalmente por causa de <b>3 fatores</b> que a maioria das mulheres nem imagina:`;
+
+  // 3 fatores
+  const cont = $('#factors'); cont.innerHTML='';
+  painFactors[dor].forEach((k,i)=>{
+    const f = F[k];
+    cont.insertAdjacentHTML('beforeend',
+      `<div class="factor"><div class="num">${i+1}</div><div><h4>${f.t}</h4><p>${f.d}</p></div></div>`);
+  });
+
+  // produto "para o caso dela" + tempo
+  const tl = tempoLabel[state.tempo] || 'poucos minutos por dia';
+  $('#prodFor').textContent = `Versão ajustada para ${pl.toLowerCase()} em ${tl}`;
+
+  // condição -> nota de segurança extra
+  if(state.condicao && state.condicao!=='nenhuma'){
+    const map={diabetes:'diabetes',pressao:'pressão alta',sensivel:'pele sensível',rosacea:'rosácea'};
+    const note=document.createElement('div');
+    note.className='note'; note.style.marginTop='14px';
+    note.innerHTML=`🛡️ <span>Como você indicou <b>${map[state.condicao]}</b>, o protocolo prioriza receitas suaves e sem ativos agressivos. Em caso de dúvida, confirme com seu médico.</span>`;
+    $('#offer').insertBefore(note, $('#offer').querySelector('.price-pill').nextSibling);
+  }
+
+  show('screen-result');
+  startTimer();
+  setupCarousel();
+  enableSticky();
+}
+function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+
+/* ============================================================
+   COUNTDOWN 15min
+   ============================================================ */
+let timerInt;
+function startTimer(){
+  let total = 15*60;
+  clearInterval(timerInt);
+  timerInt = setInterval(()=>{
+    total--;
+    if(total<0){ total=0; clearInterval(timerInt); }
+    $('#cMin').textContent = String(Math.floor(total/60)).padStart(2,'0');
+    $('#cSec').textContent = String(total%60).padStart(2,'0');
+  },1000);
+}
+
+/* ============================================================
+   CARROSSEL depoimentos
+   ============================================================ */
+function setupCarousel(){
+  const car=$('#tcar'), dots=$('#dots');
+  const cards=[...car.children];
+  dots.innerHTML=cards.map((_,i)=>`<i data-i="${i}"></i>`).join('');
+  const dotEls=[...dots.children];
+  dotEls[0].classList.add('on');
+  dotEls.forEach(d=>d.addEventListener('click',()=>{
+    cards[+d.dataset.i].scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});
+  }));
+  car.addEventListener('scroll',()=>{
+    const center=car.scrollLeft+car.clientWidth/2;
+    let best=0,bd=1e9;
+    cards.forEach((c,i)=>{const cc=c.offsetLeft+c.clientWidth/2;const dd=Math.abs(cc-center);if(dd<bd){bd=dd;best=i;}});
+    dotEls.forEach((d,i)=>d.classList.toggle('on',i===best));
+  },{passive:true});
+}
+
+/* ============================================================
+   STICKY BAR
+   ============================================================ */
+function enableSticky(){
+  const st=$('#sticky');
+  window.addEventListener('scroll',()=>{
+    if(!$('#screen-result').classList.contains('active')){st.classList.remove('show');return;}
+    st.classList.toggle('show', window.scrollY>700);
+  },{passive:true});
+}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+function toggleFaq(btn){
+  const a=btn.nextElementSibling;
+  const open=btn.classList.contains('open');
+  btn.classList.toggle('open',!open);
+  a.style.maxHeight = open ? 0 : a.scrollHeight+'px';
+}
+
+/* ============================================================
+   CHECKOUT + INITIATECHECKOUT
+   ------------------------------------------------------------
+   O link do checkout fica direto no href dos botões (.btn-checkout).
+   Como a URL contém "checkout" (checkoutMode) e aponta p/ a Hotmart,
+   o Pixel da Utmify DETECTA o clique e marca o InitiateCheckout
+   automaticamente — não existe API manual (ex: fbq) no pixel da Utmify.
+
+   Para deixar 100% à prova de falhas, no painel da Utmify
+   (Pixel > InitiateCheckout) defina o seletor CSS:  .btn-checkout
+   ============================================================ */
+function icFire(a){
+  // 1) Se algum dia você adicionar o Meta Pixel, dispara o IC nele também:
+  try{ if(typeof fbq === 'function'){ fbq('track','InitiateCheckout'); } }catch(e){}
+  // 2) Fallback de UTMs: se a Utmify ainda não decorou o link, repassa as UTMs
+  //    do anúncio para o checkout (a Utmify usa isso p/ atribuir a venda).
+  try{
+    var qs = window.location.search;            // ?utm_source=...&utm_campaign=...
+    if(a && a.href && qs.length > 1 && a.href.indexOf('utm_') === -1){
+      a.href += (a.href.indexOf('?') > -1 ? '&' : '?') + qs.slice(1);
+    }
+  }catch(e){}
+  // SEM preventDefault: a navegação segue natural -> Utmify marca o InitiateCheckout.
+}
+
+/* ============================================================
+   EXIT INTENT (1x, durante o quiz)
+   ============================================================ */
+let exitShown=false;
+document.addEventListener('mouseout',e=>{
+  if(exitShown) return;
+  if(e.clientY<=0 && !e.relatedTarget){
+    const onResult=$('#screen-result').classList.contains('active');
+    const onLanding=$('#screen-landing').classList.contains('active');
+    if(!onResult && !onLanding){ $('#exitModal').classList.add('show'); exitShown=true; }
+  }
+});
+function closeExit(){ $('#exitModal').classList.remove('show'); }
+</script>
+
+<!-- ============ UTMIFY • UTMs (atribuição — captura os parâmetros do anúncio) ============ -->
+<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+</body>
+</html>
