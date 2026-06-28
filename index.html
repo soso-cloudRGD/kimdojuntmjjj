@@ -280,6 +280,12 @@ button{font-family:inherit;cursor:pointer;border:none}
 .so-ic{flex:0 0 auto;font-size:22px;line-height:1.1}
 .so-item b{font-size:14.5px;color:var(--ink)}
 .so-item p{font-size:12.5px;color:var(--ink-soft);margin:2px 0 0;line-height:1.35}
+.locked{display:block;position:relative;margin-top:13px;border:1px solid var(--pink-line);border-radius:14px;overflow:hidden;text-decoration:none;background:#fff;box-shadow:var(--shadow-soft);min-height:104px;cursor:pointer}
+.locked-blur{padding:14px;font-size:12.5px;color:var(--ink);line-height:1.55;filter:blur(5px);user-select:none;pointer-events:none}
+.locked-cta{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;background:linear-gradient(180deg,rgba(255,243,248,.5),rgba(255,243,248,.94));text-align:center;padding:12px}
+.locked-cta .lock{font-size:24px;line-height:1}
+.locked-cta .txt{font-size:13.5px;font-weight:600;color:var(--ink)}.locked-cta .txt b{color:var(--pink-deep)}
+.locked-cta .go{font-size:12px;font-weight:700;color:#fff;background:var(--cta);padding:7px 16px;border-radius:999px;box-shadow:var(--shadow-soft);margin-top:3px}
 .includes{text-align:left;margin:10px 0 0;display:flex;flex-direction:column;gap:10px}
 .inc{display:flex;gap:11px;align-items:flex-start;font-size:14px}
 .inc .ck{flex:0 0 auto;width:22px;height:22px;border-radius:50%;background:#EAF8F1;color:var(--green);display:grid;place-items:center;font-size:12px;font-weight:700;margin-top:1px}
@@ -690,6 +696,10 @@ footer a{color:var(--pink-deep);text-decoration:none}
         <div class="kr-photo"><img src="img/kim-dojun.jpg" alt="Kim Dojun" onerror="this.remove()"><span class="imgph2">K</span></div>
         <div><div class="kr-tag">💛 Kim recomenda pra você</div><b id="krName">—</b><p id="krDesc"></p></div>
       </div>
+      <a class="locked btn-checkout" href="https://pay.hotmart.com/A106482994M?off=h2oaym8v&checkoutMode=10" onclick="icFire(this)">
+        <div class="locked-blur">Modo de usar: prepare e deixe amornar, aplique no rosto com algodão por 15 minutos, 3 vezes por semana, sempre à noite. O detalhe que a maioria erra é a ordem certa — e é justamente isso que muda o resultado. Com consistência, a maioria relata a pele mais uniforme e firme em 2 a 4 semanas. A receita completa, com as quantidades exatas e o passo a passo, está no guia.</div>
+        <div class="locked-cta"><span class="lock">🔒</span><span class="txt">Desbloqueie o passo a passo completo no <b>Pele de Porcelana</b></span><span class="go">Toque para liberar →</span></div>
+      </a>
       <div class="note" style="margin-top:12px">🌿 <span><b>Receitas 100% naturais, seguras e que funcionam</b> — com ingredientes acessíveis do Brasil. O Kim cita as referências dos estudos dentro do guia.</span></div>
     </div>
 
