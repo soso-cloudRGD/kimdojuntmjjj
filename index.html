@@ -245,6 +245,41 @@ button{font-family:inherit;cursor:pointer;border:none}
 .offer{text-align:center;background:linear-gradient(180deg,#fff,#FFF2F7);border:2px solid var(--pink)}
 .offer h3{font-size:23px}
 .incl-intro{text-align:center;font-size:12.5px;color:var(--ink-soft);line-height:1.45;margin:14px 0 2px}.incl-intro b{color:var(--ink)}
+.ebook-card{background:var(--card);border:1px solid var(--pink-line);border-radius:var(--radius-sm);padding:14px;box-shadow:var(--shadow-soft);text-align:center}
+.ebook-shot{position:relative;border-radius:12px;overflow:hidden;background:linear-gradient(180deg,#FFF3F8,#FCE2EC);min-height:150px;display:grid;place-items:center;border:1px solid var(--pink-line)}
+.ebook-shot img{width:100%;display:block}
+.ebook-shot.noimg img{display:none}.ebook-shot.noimg::after{content:'📖';font-size:46px;opacity:.45}
+.ebook-badge{position:absolute;left:10px;bottom:10px;background:rgba(255,255,255,.93);color:var(--pink-deep);font-weight:700;font-size:11.5px;padding:5px 12px;border-radius:999px;box-shadow:0 6px 16px -8px rgba(0,0,0,.3)}
+.ebook-text{font-size:14.5px;line-height:1.5;color:var(--ink);margin-top:12px}.ebook-text b{color:var(--pink-deep)}
+.bookgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:14px 0 10px}
+.bookpg{position:relative;border-radius:11px;overflow:hidden;border:1px solid var(--pink-line);background:linear-gradient(180deg,#FFF3F8,#FCE2EC);aspect-ratio:3/4;box-shadow:var(--shadow-soft)}
+.bookpg img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.bookpg.noimg img{display:none}.bookpg.noimg::after{content:'📖';position:absolute;inset:0;display:grid;place-items:center;font-size:28px;opacity:.4}
+.bookpg .cap{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(120,28,72,.86));color:#fff;font-size:9.5px;font-weight:600;padding:16px 6px 6px;line-height:1.2}
+.bookstats{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:4px}
+.bookstat{background:#fff;border:1px solid var(--pink-line);border-radius:11px;padding:11px 12px;box-shadow:var(--shadow-soft);display:flex;align-items:baseline;gap:8px}
+.bookstat .num{font-family:'Fraunces',serif;font-weight:700;font-size:21px;color:var(--pink-deep);line-height:1;flex:0 0 auto}
+.bookstat small{font-size:11px;color:var(--ink-soft);line-height:1.2}
+.opt-note{font-size:11.5px;color:var(--pink-deep);background:#FFF0F6;border:1px dashed var(--pink-line);border-radius:10px;padding:9px 12px;margin-top:10px;line-height:1.35;display:none;text-align:left}
+.opt-note.show{display:block;animation:fadeNote .28s ease}
+@keyframes fadeNote{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:none}}
+.growth-box{position:relative;background:#fff;border:1px solid var(--pink-line);border-radius:var(--radius-sm);padding:30px 14px 14px;box-shadow:var(--shadow-soft);margin-top:6px;overflow:hidden}
+.growth-svg{width:100%;height:165px;display:block}
+.growth-svg #gPath{stroke-dasharray:400;stroke-dashoffset:400;transition:stroke-dashoffset 1.7s ease}
+.growth-box.run #gPath{stroke-dashoffset:0}
+.growth-svg #gArea{opacity:0;transition:opacity 1s ease .6s}
+.growth-box.run #gArea{opacity:1}
+.g-badge{position:absolute;font-size:11.5px;font-weight:700;color:#fff;padding:6px 12px;border-radius:999px;z-index:2;box-shadow:0 7px 16px -6px rgba(0,0,0,.35)}
+.g-here{background:var(--pink);left:16px;bottom:46px}
+.g-goal{background:var(--green);right:14px;top:16px}
+.g-dot{opacity:0}.growth-box.run .g-dot{opacity:1;transition:opacity .4s ease 1.4s}
+.growth-note{font-size:13px;color:var(--ink);background:var(--bg-2);border-radius:12px;padding:12px 14px;margin-top:12px;line-height:1.45;text-align:center}
+.so-card{background:var(--card);border:1px solid var(--pink-line);border-radius:var(--radius-sm);padding:4px 14px;box-shadow:var(--shadow-soft);text-align:left}
+.so-item{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--pink-line)}
+.so-item:last-child{border-bottom:none}
+.so-ic{flex:0 0 auto;font-size:22px;line-height:1.1}
+.so-item b{font-size:14.5px;color:var(--ink)}
+.so-item p{font-size:12.5px;color:var(--ink-soft);margin:2px 0 0;line-height:1.35}
 .includes{text-align:left;margin:10px 0 0;display:flex;flex-direction:column;gap:10px}
 .inc{display:flex;gap:11px;align-items:flex-start;font-size:14px}
 .inc .ck{flex:0 0 auto;width:22px;height:22px;border-radius:50%;background:#EAF8F1;color:var(--green);display:grid;place-items:center;font-size:12px;font-weight:700;margin-top:1px}
@@ -412,13 +447,14 @@ footer a{color:var(--pink-deep);text-decoration:none}
   <section class="screen" id="screen-dor">
     <div class="q-head"><div class="q-step">Sua pele hoje</div><h2>O que mais te incomoda<br>na sua pele hoje?</h2><p class="q-sub">Escolha o que mais pesa para você.</p></div>
     <div class="options grid" data-q="dor">
-      <button class="opt" data-v="rugas"><span class="ico">〰️</span> Rugas e linhas</button>
-      <button class="opt" data-v="manchas"><span class="ico">🟤</span> Manchas</button>
-      <button class="opt" data-v="flacidez"><span class="ico">🎈</span> Flacidez</button>
-      <button class="opt" data-v="seca"><span class="ico">🏜️</span> Pele seca</button>
-      <button class="opt" data-v="opaca"><span class="ico">🌥️</span> Opaca / sem brilho</button>
-      <button class="opt" data-v="varios"><span class="ico">🌀</span> Vários problemas</button>
+      <button class="opt" data-v="rugas" data-note="O Kim tem uma rotina pronta pra rugas e firmeza no guia dele."><span class="ico">〰️</span> Rugas e linhas</button>
+      <button class="opt" data-v="manchas" data-note="No Pele de Porcelana tem uma rotina completa de clareamento de manchas."><span class="ico">🟤</span> Manchas</button>
+      <button class="opt" data-v="flacidez" data-note="O Kim tem uma rotina de firmeza e contorno no guia."><span class="ico">🎈</span> Flacidez</button>
+      <button class="opt" data-v="seca" data-note="Pra pele seca, o guia ensina o método de camadas que muda tudo."><span class="ico">🏜️</span> Pele seca</button>
+      <button class="opt" data-v="opaca" data-note="Os segredos de viço e luminosidade estão no Pele de Porcelana."><span class="ico">🌥️</span> Opaca / sem brilho</button>
+      <button class="opt" data-v="varios" data-note="O guia tem a tabela 'qual ingrediente pra cada problema' — perfeita pra você."><span class="ico">🌀</span> Vários problemas</button>
     </div>
+    <div class="opt-note"></div>
     <div class="q-nav"><button class="btn-ghost" onclick="back()">← Voltar</button></div>
   </section>
 
@@ -484,13 +520,47 @@ footer a{color:var(--pink-deep);text-decoration:none}
   <section class="screen" id="screen-condicao">
     <div class="q-head"><div class="q-step">Segurança</div><h2>Você tem alguma<br>dessas condições?</h2><p class="q-sub">Para deixar seu protocolo 100% seguro para você.</p></div>
     <div class="options" data-q="condicao">
-      <button class="opt" data-v="diabetes"><span class="ico">🩸</span> Diabetes <span class="tick"></span></button>
-      <button class="opt" data-v="pressao"><span class="ico">❤️</span> Pressão alta <span class="tick"></span></button>
-      <button class="opt" data-v="sensivel"><span class="ico">🌡️</span> Pele sensível <span class="tick"></span></button>
-      <button class="opt" data-v="rosacea"><span class="ico">🌹</span> Rosácea <span class="tick"></span></button>
+      <button class="opt" data-v="diabetes" data-note="O Kim escreveu um capítulo só pra quem tem diabetes — com as adaptações seguras."><span class="ico">🩸</span> Diabetes <span class="tick"></span></button>
+      <button class="opt" data-v="pressao" data-note="O guia tem adaptações próprias pra quem tem pressão alta."><span class="ico">❤️</span> Pressão alta <span class="tick"></span></button>
+      <button class="opt" data-v="sensivel" data-note="Tem uma rotina só de calmantes, sem ácidos, feita pra pele sensível."><span class="ico">🌡️</span> Pele sensível <span class="tick"></span></button>
+      <button class="opt" data-v="rosacea" data-note="O Kim tem um mapa de gatilhos da rosácea e uma rotina segura no guia."><span class="ico">🌹</span> Rosácea <span class="tick"></span></button>
       <button class="opt" data-v="nenhuma"><span class="ico">✅</span> Nenhuma dessas <span class="tick"></span></button>
     </div>
+    <div class="opt-note"></div>
     <div class="note">🛡️ <span><b>Suas respostas são privadas.</b> O protocolo é cosmético e natural. Em caso de condição de saúde ou pele reativa, confirme com seu médico ou dermatologista.</span></div>
+    <div class="q-nav"><button class="btn-ghost" onclick="back()">← Voltar</button></div>
+  </section>
+
+  <!-- ===== GROWTH GRAPH (estilo Lóvi) ===== -->
+  <section class="screen" id="screen-growth">
+    <div class="q-head"><div class="q-step">Você sabia? 📈</div><h2>Você está mais perto<br>do que imagina</h2><p class="q-sub">Veja a trajetória da sua pele seguindo o ritual coreano de 21 dias.</p></div>
+    <div class="growth-box">
+      <span class="g-badge g-here">Você está aqui</span>
+      <span class="g-badge g-goal">Sua meta 🌸</span>
+      <svg class="growth-svg" viewBox="0 0 320 165" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="gline" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#F2789F"/><stop offset="1" stop-color="#3FB68B"/></linearGradient>
+          <linearGradient id="gfill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="rgba(63,182,139,.20)"/><stop offset="1" stop-color="rgba(242,120,159,.03)"/></linearGradient>
+        </defs>
+        <path id="gArea" d="M18,140 C80,134 110,86 165,80 C220,74 252,40 302,22 L302,165 L18,165 Z" fill="url(#gfill)"/>
+        <path id="gPath" d="M18,140 C80,134 110,86 165,80 C220,74 252,40 302,22" fill="none" stroke="url(#gline)" stroke-width="5" stroke-linecap="round"/>
+        <circle class="g-dot" cx="18" cy="140" r="6" fill="#F2789F"/>
+        <circle class="g-dot" cx="302" cy="22" r="6.5" fill="#3FB68B"/>
+      </svg>
+    </div>
+    <div class="growth-note">A maioria das mulheres que segue o método relata a pele <b>mais hidratada e luminosa</b> já nas primeiras semanas. <span style="color:var(--ink-soft)">Resultados variam de pessoa para pessoa.</span></div>
+    <button class="btn pulse" style="margin-top:16px" onclick="next()">Continuar <span class="arrow">→</span></button>
+    <div class="q-nav"><button class="btn-ghost" onclick="back()">← Voltar</button></div>
+  </section>
+
+  <!-- ===== EBOOK TEASER (indução personalizada) ===== -->
+  <section class="screen" id="screen-ebook">
+    <div class="q-head"><div class="q-step">Olha só 👀</div><h2 id="ebookTitle">O Kim já tem isso<br>pronto pra você</h2></div>
+    <div class="ebook-card">
+      <div class="ebook-shot"><img id="ebookImg" src="" alt="" onerror="this.closest('.ebook-shot').classList.add('noimg')"><span class="ebook-badge">📖 Pele de Porcelana</span></div>
+      <p class="ebook-text" id="ebookText"></p>
+    </div>
+    <button class="btn pulse" style="margin-top:16px" onclick="next()">Continuar <span class="arrow">→</span></button>
     <div class="q-nav"><button class="btn-ghost" onclick="back()">← Voltar</button></div>
   </section>
 
@@ -506,7 +576,7 @@ footer a{color:var(--pink-deep);text-decoration:none}
       <button class="opt" data-v="pepino"><span class="ico">🥒</span> Pepino <span class="tick"></span></button>
       <button class="opt" data-v="nada"><span class="ico">💛</span> Não conheço — o Kim recomenda <span class="tick"></span></button>
     </div>
-    <button class="btn pulse" style="margin-top:18px" onclick="next()">Continuar <span class="arrow">→</span></button>
+    <button class="btn pulse" style="margin-top:18px" onclick="finishQuiz()">Continuar <span class="arrow">→</span></button>
     <div class="q-nav"><button class="btn-ghost" onclick="back()">← Voltar</button></div>
   </section>
 
@@ -518,6 +588,19 @@ footer a{color:var(--pink-deep);text-decoration:none}
     <button class="btn pulse" onclick="submitEmail()">VER MEU DIAGNÓSTICO <span class="arrow">→</span></button>
     <div class="privacy">🔒 Seus dados estão seguros. Sem spam — só o seu protocolo.</div>
     <div class="q-nav"><button class="btn-ghost" onclick="back()">← Voltar</button></div>
+  </section>
+
+  <!-- ===== SOFT OFFER (E se você tivesse o guia hoje?) ===== -->
+  <section class="screen" id="screen-softoffer">
+    <div class="q-head"><div class="q-step">Imagina só ✨</div><h2 id="soTitle">E se, a partir de hoje,<br>isso fosse possível?</h2><p class="q-sub">Por menos do que custa <b>um pote de creme</b>, você teria o guia do Kim na mão — e começaria a cuidar da pele do jeito certo.</p></div>
+    <div class="so-card">
+      <div class="so-item"><span class="so-ic">🟤</span><div><b>Manchas mais claras</b><p>Água de arroz, batata e vitamina C natural — na ordem certa.</p></div></div>
+      <div class="so-item"><span class="so-ic">🏜️</span><div><b>Adeus pele ressecada</b><p>O método de camadas devolve a hidratação profunda que a pele perdeu.</p></div></div>
+      <div class="so-item"><span class="so-ic">🎈</span><div><b>Mais firmeza no rosto</b><p>Colágeno natural com rosa mosqueta, ginseng e massagem facial.</p></div></div>
+      <div class="so-item"><span class="so-ic">✨</span><div><b>Aquele viço de volta</b><p>A pele volta a refletir luz — o "glass skin" coreano.</p></div></div>
+    </div>
+    <div class="note" style="justify-content:center;margin-top:12px">🌸 <span>Com o que o <b>Pele de Porcelana</b> ensina e um pouco de consistência, a <b>maioria das mulheres relata</b> uma pele mais firme, uniforme e luminosa.</span></div>
+    <button class="btn pulse" style="margin-top:14px" onclick="next();runLoading()">Ver meu resultado <span class="arrow">→</span></button>
   </section>
 
   <!-- ===== LOADING ===== -->
@@ -620,6 +703,27 @@ footer a{color:var(--pink-deep);text-decoration:none}
       <div class="fp"><div class="w">Dia 21</div><div class="t">Tom uniforme e firmeza melhor — <b>mais confiança, menos maquiagem</b>. <span style="color:var(--ink-soft)">Resultados variam.</span></div></div>
     </div>
 
+    <!-- O QUE TEM DENTRO DO LIVRO -->
+    <div class="section">
+      <span class="kicker">O guia do Kim</span>
+      <h3 style="margin-bottom:4px">Tudo isso já está dentro do<br>Pele de Porcelana</h3>
+      <p class="q-sub" style="margin-bottom:2px">O livro digital que o Kim criou pra pele depois dos 50 — você abre no celular e segue. Olha o que tem dentro:</p>
+      <div class="bookgrid">
+        <div class="bookpg"><img src="img/PELE DE PORCELANA V2_pages-to-jpg-0001.jpg" alt="Capa do livro" onerror="this.closest('.bookpg').classList.add('noimg')"><span class="cap">A capa do seu guia</span></div>
+        <div class="bookpg"><img src="img/PELE DE PORCELANA V2_pages-to-jpg-0008.jpg" alt="Os 5 pilares" onerror="this.closest('.bookpg').classList.add('noimg')"><span class="cap">O método: os 5 pilares</span></div>
+        <div class="bookpg"><img src="img/PELE DE PORCELANA V2_pages-to-jpg-0072.jpg" alt="Rotinas por problema" onerror="this.closest('.bookpg').classList.add('noimg')"><span class="cap">Rotinas prontas por problema</span></div>
+        <div class="bookpg"><img src="img/PELE DE PORCELANA V2_pages-to-jpg-0062.jpg" alt="Pele depois dos 50" onerror="this.closest('.bookpg').classList.add('noimg')"><span class="cap">Sua pele depois dos 50</span></div>
+        <div class="bookpg"><img src="img/PELE DE PORCELANA V2_pages-to-jpg-0075.jpg" alt="Capitulo por condicao" onerror="this.closest('.bookpg').classList.add('noimg')"><span class="cap">Um capítulo pra cada condição</span></div>
+        <div class="bookpg"><img src="img/PELE DE PORCELANA V2_pages-to-jpg-0092.jpg" alt="Qual ingrediente para cada problema" onerror="this.closest('.bookpg').classList.add('noimg')"><span class="cap">Qual ingrediente pra cada problema</span></div>
+      </div>
+      <div class="bookstats">
+        <div class="bookstat"><span class="num">47</span><small>receitas naturais coreanas</small></div>
+        <div class="bookstat"><span class="num">21 dias</span><small>ritual passo a passo</small></div>
+        <div class="bookstat"><span class="num">100%</span><small>natural, seguro e com estudos citados</small></div>
+        <div class="bookstat"><span class="num">∞</span><small>acesso vitalício no celular</small></div>
+      </div>
+    </div>
+
     <!-- OFERTA (bloco focal) -->
     <div class="section offer" id="offer">
       <span class="price-pill">🎁 Oferta do seu diagnóstico</span>
@@ -714,8 +818,8 @@ footer a{color:var(--pink-deep);text-decoration:none}
 <script>
 /* ===== ESTADO + FLUXO ===== */
 const state = { goal:'', idade:'', dor:'', name:'', tentou:[], tempo:'', condicao:'', ingredientes:[], email:'' };
-const flow = ['screen-landing','screen-goal','screen-idade','screen-proof1','screen-dor','screen-name','screen-tentou','screen-enemies','screen-proof2','screen-tempo','screen-condicao','screen-ingredientes','screen-email','screen-loading','screen-result'];
-const quizSteps = ['screen-goal','screen-idade','screen-proof1','screen-dor','screen-name','screen-tentou','screen-enemies','screen-proof2','screen-tempo','screen-condicao','screen-ingredientes','screen-email'];
+const flow = ['screen-landing','screen-goal','screen-idade','screen-proof1','screen-dor','screen-name','screen-tentou','screen-enemies','screen-growth','screen-proof2','screen-tempo','screen-condicao','screen-ebook','screen-ingredientes','screen-softoffer','screen-loading','screen-result'];
+const quizSteps = ['screen-goal','screen-idade','screen-proof1','screen-dor','screen-name','screen-tentou','screen-enemies','screen-growth','screen-proof2','screen-tempo','screen-condicao','screen-ebook','screen-ingredientes','screen-softoffer'];
 let idx = 0, miniTimer=null;
 const $ = s => document.querySelector(s);
 
@@ -741,21 +845,29 @@ function onEnter(id){
   if(id==='screen-proof1'||id==='screen-proof2'){ miniTimer=setTimeout(next,2900); }
   if(id==='screen-tentou' && state.name) $('#tentouTitle').innerHTML = state.name+', o que você já<br>tentou pra cuidar da pele?';
   if(id==='screen-enemies') buildEnemies();
+  if(id==='screen-ebook') buildEbookTeaser();
+  if(id==='screen-growth'){ const b=document.querySelector('.growth-box'); if(b){ b.classList.remove('run'); setTimeout(()=>b.classList.add('run'),60); } }
+  if(id==='screen-softoffer' && state.name) $('#soTitle').innerHTML=escapeHtml(state.name)+', e se a partir<br>de hoje isso fosse possível?';
   if(id==='screen-email' && state.name) $('#emailTitle').innerHTML = 'Prontinho, '+escapeHtml(state.name)+'!<br>Seu diagnóstico está pronto';
 }
 
 /* ===== OPÇÕES single (auto) + multi ===== */
 document.querySelectorAll('.options').forEach(group=>{
   const key=group.dataset.q, multi=group.hasAttribute('data-multi');
+  const noteEl=group.parentElement.querySelector('.opt-note');
   group.querySelectorAll('.opt').forEach(btn=>{
     btn.addEventListener('click',()=>{
       if(multi){
         if(btn.dataset.v==='nada'){ group.querySelectorAll('.opt').forEach(b=>b.classList.remove('sel')); btn.classList.add('sel'); }
         else { const ex=group.querySelector('.opt[data-v="nada"]'); if(ex)ex.classList.remove('sel'); btn.classList.toggle('sel'); }
         state[key]=[...group.querySelectorAll('.opt.sel')].map(b=>b.dataset.v);
+        if(noteEl){ if(btn.classList.contains('sel')&&btn.dataset.note){ noteEl.innerHTML='💡 '+btn.dataset.note; noteEl.classList.add('show'); } else if(!group.querySelector('.opt.sel[data-note]')){ noteEl.classList.remove('show'); } }
       } else {
         group.querySelectorAll('.opt').forEach(b=>b.classList.remove('sel'));
-        btn.classList.add('sel'); state[key]=btn.dataset.v; setTimeout(next,330);
+        btn.classList.add('sel'); state[key]=btn.dataset.v;
+        let delay=330;
+        if(noteEl && btn.dataset.note){ noteEl.innerHTML='💡 '+btn.dataset.note; noteEl.classList.add('show'); delay=1700; }
+        setTimeout(next,delay);
       }
     });
   });
@@ -781,11 +893,26 @@ function buildEnemies(){
   list.innerHTML=keys.map(k=>{const e=ENEMIES[k];return e?'<div class="enemy"><span class="ic">'+e.ic+'</span><div><h4>'+e.t+'</h4><p>'+e.p+'</p></div></div>':'';}).join('');
 }
 
+/* ===== EBOOK TEASER (indução personalizada) ===== */
+function buildEbookTeaser(){
+  const dorPage={manchas:72,flacidez:92,rugas:92,seca:92,opaca:72,varios:92};
+  const dorTxt={manchas:'uma rotina completa de clareamento',flacidez:'uma rotina completa de firmeza e contorno',rugas:'uma rotina completa pra rugas e firmeza',seca:'o método de camadas pra pele seca',opaca:'os segredos de viço e luminosidade',varios:'a tabela com o ingrediente certo pra cada sinal'};
+  const pg=dorPage[state.dor]||92;
+  const img=$('#ebookImg');
+  if(img){ const sh=img.closest('.ebook-shot'); if(sh)sh.classList.remove('noimg'); img.src=encodeURI('img/PELE DE PORCELANA V2_pages-to-jpg-'+String(pg).padStart(4,'0')+'.jpg'); }
+  if(state.name) $('#ebookTitle').innerHTML=escapeHtml(state.name)+', o Kim já tem<br>isso pronto pra você';
+  let t='Pra <b>'+(painLabel[state.dor]||'sua pele').toLowerCase()+'</b>, o Kim montou '+(dorTxt[state.dor]||'uma rotina pronta')+' no <b>Pele de Porcelana</b> — o guia dele com 47 receitas coreanas naturais.';
+  const cond={diabetes:'diabetes',pressao:'pressão alta',sensivel:'pele sensível',rosacea:'rosácea'};
+  if(state.condicao && cond[state.condicao]) t+=' E como você marcou <b>'+cond[state.condicao]+'</b>, ele tem um <b>capítulo só pra isso</b>, com as adaptações seguras.';
+  $('#ebookText').innerHTML=t;
+}
+
 /* ===== EMAIL ===== */
 function submitEmail(){ const e=$('#inEmail').value.trim(); if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)){$('#fEmail').classList.add('invalid');return;} $('#fEmail').classList.remove('invalid'); state.email=e; saveLead(state); next(); runLoading(); }
 $('#inEmail') && $('#inEmail').addEventListener('input',()=>$('#fEmail').classList.remove('invalid'));
 /* TROQUE:EMAIL */
 function saveLead(d){ try{localStorage.setItem('pdp_lead',JSON.stringify(d));}catch(e){} /* fetch('https://SEU-WEBHOOK',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)}); */ }
+function finishQuiz(){ saveLead(state); next(); }
 
 /* ===== LOADING ===== */
 const loadMsgs=['Analisando suas respostas...','Medindo o seu "Selo de Porcelana"...','Cruzando com o protocolo coreano de 21 dias...','Selecionando as receitas ideais...','Diagnóstico pronto! 🌸'];
