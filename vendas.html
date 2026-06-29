@@ -40,7 +40,7 @@ button{font-family:inherit;cursor:pointer;border:none}
 a{color:inherit}
 .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
 .narrow{max-width:620px;margin:0 auto}
-section{padding:34px 0}
+section{padding:40px 0;border-top:1px solid rgba(242,120,159,.13)}
 .sec-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--pink-deep);margin-bottom:9px}
 h2.title{font-size:clamp(23px,4.4vw,34px);font-weight:600;margin-bottom:8px}
 .sub{font-size:clamp(14px,1.7vw,16px);color:#5d4d54}.sub b{color:var(--ink)}
@@ -64,10 +64,13 @@ h2.title{font-size:clamp(23px,4.4vw,34px);font-weight:600;margin-bottom:8px}
 .hero{padding-top:26px}
 @media(min-width:860px){ .hero{padding-top:52px} }
 .eyebrow{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--pink-line);color:var(--pink-deep);font-size:12px;font-weight:600;padding:8px 15px;border-radius:99px;box-shadow:var(--shadow-soft);margin-bottom:16px}
-.hero-grid{display:grid;gap:24px;align-items:center}
-@media(min-width:860px){ .hero-grid{grid-template-columns:1.08fr .92fr;gap:44px} }
-.htext{text-align:center}
-@media(min-width:860px){ .htext{text-align:left} }
+.hero-grid{display:grid;gap:20px;grid-template-areas:"headline" "vsl" "cta"}
+.h-headline{grid-area:headline}.h-vsl{grid-area:vsl}.h-cta{grid-area:cta}
+.h-headline,.h-cta{text-align:center}
+@media(min-width:860px){
+  .hero-grid{grid-template-columns:1.05fr .95fr;column-gap:42px;row-gap:14px;align-items:center;grid-template-areas:"vsl headline" "vsl cta"}
+  .h-headline,.h-cta{text-align:left}
+}
 .hero h1{font-size:clamp(27px,4.8vw,46px);font-weight:600;margin-bottom:13px}
 .hero h1 .hl{background:linear-gradient(120deg,var(--pink-deep),#FF8FB0);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .hero .sub{margin-bottom:18px}
@@ -219,7 +222,12 @@ h2.title{font-size:clamp(23px,4.4vw,34px);font-weight:600;margin-bottom:8px}
 <!-- ===================== 1. HERO + VSL ===================== -->
 <header class="hero wrap">
   <div class="hero-grid">
-    <div>
+    <div class="h-headline">
+      <span class="eyebrow">📕 LIVRO DIGITAL · 47 receitas coreanas · acesso na hora</span>
+      <h1>A pele que você achava ter <span class="hl">perdido depois dos 50</span> — de volta, do jeito coreano</h1>
+      <p class="sub"><b>47 receitas coreanas naturais</b>, organizadas por problema — mancha, flacidez, ressecamento e viço. Passo a passo, com o que você <b>já tem em casa</b>, em poucos minutos por noite.</p>
+    </div>
+    <div class="h-vsl">
       <div class="vsl">
         <video class="vsl-video" controls preload="metadata" playsinline poster="vsl-poster.jpg">
           <source src="vsl_h264.mp4" type="video/mp4">
@@ -227,10 +235,7 @@ h2.title{font-size:clamp(23px,4.4vw,34px);font-weight:600;margin-bottom:8px}
       </div>
       <p class="vsl-cap">▶ Aperte o play — o Kim te explica tudo neste vídeo.</p>
     </div>
-    <div class="htext">
-      <span class="eyebrow">📕 LIVRO DIGITAL · 47 receitas coreanas · acesso na hora</span>
-      <h1>A pele que você achava ter <span class="hl">perdido depois dos 50</span> — de volta, do jeito coreano</h1>
-      <p class="sub"><b>47 receitas coreanas naturais</b>, organizadas por problema — mancha, flacidez, ressecamento e falta de viço. Passo a passo, com ingredientes baratos que você <b>já tem em casa</b>, em poucos minutos por noite. Pensado pra pele depois dos 50, pra ela voltar a ficar firme, macia e com aquele viço.</p>
+    <div class="h-cta">
       <div id="heroCtaWrap" style="display:none">
         <a class="btn pulse btn-checkout" href="https://pay.hotmart.com/A106482994M?off=h2oaym8v&checkoutMode=10" onclick="icFire(this)">QUERO O MEU GUIA AGORA <span class="arrow">→</span></a>
       </div>
@@ -276,11 +281,6 @@ h2.title{font-size:clamp(23px,4.4vw,34px);font-weight:600;margin-bottom:8px}
   <div class="grid2">
     <div>
       <div class="cover"><img src="capa.png" alt="Livro Pele de Porcelana" onerror="this.onerror=null;this.src='PELE DE PORCELANA V2_pages-to-jpg-0001.jpg'"></div>
-      <div class="bookgrid">
-        <div class="bookpg"><img src="PELE DE PORCELANA V2_pages-to-jpg-0008.jpg" alt="" onerror="this.parentElement.classList.add('more');this.remove()"><span class="cap">Os 5 pilares</span></div>
-        <div class="bookpg"><img src="PELE DE PORCELANA V2_pages-to-jpg-0062.jpg" alt="" onerror="this.parentElement.classList.add('more');this.remove()"><span class="cap">Depois dos 50</span></div>
-        <div class="bookpg"><img src="PELE DE PORCELANA V2_pages-to-jpg-0072.jpg" alt="" onerror="this.parentElement.classList.add('more');this.remove()"><span class="cap">Rotina pra manchas</span></div>
-      </div>
     </div>
     <div>
       <span class="sec-tag">O que você recebe</span>
@@ -311,18 +311,6 @@ h2.title{font-size:clamp(23px,4.4vw,34px);font-weight:600;margin-bottom:8px}
     <p style="margin-top:10px;color:var(--pink-deep);font-weight:600">Se essa já te ajuda… imagine as outras 46. 🌸</p>
   </div>
 </div></section>
-
-<!-- ===================== 6. POR QUE FUNCIONA (evidência) ===================== -->
-<section class="wrap">
-  <div class="center"><span class="sec-tag">Por que funciona</span>
-  <h2 class="title">Receitas reais, com o nível de evidência de cada uma</h2></div>
-  <div class="ev-list">
-    <div class="ev"><span class="ic">🍵</span><div><b>Chá verde <span class="evpill ev-forte">FORTE</span></b><p>Antioxidante (EGCG) que protege e dá viço.</p></div></div>
-    <div class="ev"><span class="ic">🍚</span><div><b>Água de arroz <span class="evpill ev-mod">MODERADA</span></b><p>Ajuda a renovar e uniformizar o tom. Você joga fora todo dia.</p></div></div>
-    <div class="ev"><span class="ic">🍯</span><div><b>Mel <span class="evpill ev-mod">MODERADA</span></b><p>Umectante natural: puxa e segura a hidratação.</p></div></div>
-    <div class="ev"><span class="ic">🌿</span><div><b>Babosa <span class="evpill ev-mod">MODERADA</span></b><p>Acalma e hidrata a pele madura e sensível.</p></div></div>
-  </div>
-</section>
 
 <!-- ===================== 7. RESULTADO (futuro) ===================== -->
 <section class="wrap"><div class="narrow">
@@ -404,13 +392,10 @@ h2.title{font-size:clamp(23px,4.4vw,34px);font-weight:600;margin-bottom:8px}
   <h2 class="title">O que as mulheres me perguntam antes de começar</h2></div>
   <div class="qa-list">
     <div class="qa"><div class="q"><span class="av ini">L</span><div class="bub"><span class="nm">Lúcia, 61</span>"Tenho 61 anos e sou péssima com tecnologia. Vou conseguir usar?"</div></div><div class="a"><span class="av"><img src="kim-dojun.jpg" alt="" onerror="this.parentElement.textContent='🌸'"></span><div class="bub"><span class="nm">Kim Dojun</span>Se você abre uma mensagem no celular, consegue. É um PDF: abre, lê e segue. Uma receita por noite.</div></div></div>
-    <div class="qa"><div class="q"><span class="av ini">M</span><div class="bub"><span class="nm">Marlene, 58</span>"Preciso comprar produto importado caro?"</div></div><div class="a"><span class="av"><img src="kim-dojun.jpg" alt="" onerror="this.parentElement.textContent='🌸'"></span><div class="bub"><span class="nm">Kim Dojun</span>Não. Quase tudo você já tem em casa — arroz, chá, mel. O resto é de mercado.</div></div></div>
     <div class="qa"><div class="q"><span class="av ini">S</span><div class="bub"><span class="nm">Sônia, 64</span>"Em quanto tempo eu vejo diferença?"</div></div><div class="a"><span class="av"><img src="kim-dojun.jpg" alt="" onerror="this.parentElement.textContent='🌸'"></span><div class="bub"><span class="nm">Kim Dojun</span>A maioria sente a pele mais macia já na 1ª semana. O viço costuma vir nas primeiras semanas, com consistência.</div></div></div>
     <div class="qa"><div class="q"><span class="av ini">C</span><div class="bub"><span class="nm">Cleusa, 56</span>"E se eu não gostar?"</div></div><div class="a"><span class="av"><img src="kim-dojun.jpg" alt="" onerror="this.parentElement.textContent='🌸'"></span><div class="bub"><span class="nm">Kim Dojun</span>Você tem 7 dias de garantia. Reembolso total pela Hotmart, sem precisar explicar nada.</div></div></div>
     <div class="qa"><div class="q"><span class="av ini">I</span><div class="bub"><span class="nm">Inês, 60</span>"Como eu recebo o livro?"</div></div><div class="a"><span class="av"><img src="kim-dojun.jpg" alt="" onerror="this.parentElement.textContent='🌸'"></span><div class="bub"><span class="nm">Kim Dojun</span>Na hora, no seu e-mail, assim que o pagamento é confirmado. Acesso vitalício no celular ou PC.</div></div></div>
-    <div class="qa"><div class="q"><span class="av ini">V</span><div class="bub"><span class="nm">Vera, 63</span>"É seguro pra pele sensível?"</div></div><div class="a"><span class="av"><img src="kim-dojun.jpg" alt="" onerror="this.parentElement.textContent='🌸'"></span><div class="bub"><span class="nm">Kim Dojun</span>São receitas suaves e o livro ensina o teste de toque antes. Se você usa medicação na pele, confirme com seu médico.</div></div></div>
   </div>
-  <div class="narrow"><a class="btn btn-checkout" style="margin-top:18px" href="https://pay.hotmart.com/A106482994M?off=h2oaym8v&checkoutMode=10" onclick="icFire(this)">Quero testar sem risco — R$ 27,90 <span class="arrow">→</span></a></div>
 </section>
 
 <!-- ===================== 13. FECHAMENTO ===================== -->
