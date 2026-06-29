@@ -121,8 +121,8 @@ h2.title{font-size:clamp(23px,4.4vw,34px);font-weight:600;margin-bottom:8px}
 .bookpg.more{display:flex;align-items:center;justify-content:center;text-align:center;color:var(--pink-deep)}
 .bookpg.more b{font-family:'Fraunces';font-size:24px;display:block}.bookpg.more span{font-size:11px;color:var(--ink-soft);padding:0 6px}
 .feat{margin-top:6px}
-.feat li{list-style:none;display:flex;gap:10px;align-items:flex-start;margin-bottom:11px;font-size:14.5px}
-.feat .ck{color:var(--green);font-weight:800;flex:0 0 auto;font-size:16px}
+.feat li{list-style:none;position:relative;padding-left:27px;margin-bottom:11px;font-size:14.5px;line-height:1.45}
+.feat .ck{color:var(--green);font-weight:800;position:absolute;left:0;top:1px;font-size:16px}
 .bookstats{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-top:16px}
 .bookstat{background:#fff;border:1px solid var(--pink-line);border-radius:12px;padding:11px 12px;display:flex;align-items:baseline;gap:8px;box-shadow:var(--shadow-soft)}
 .bookstat .num{font-family:'Fraunces';font-size:20px;color:var(--pink-deep)}.bookstat small{font-size:11px;color:var(--ink-soft);line-height:1.2}
@@ -179,8 +179,8 @@ h2.title{font-size:clamp(23px,4.4vw,34px);font-weight:600;margin-bottom:8px}
 .offer{background:#fff;border:2px solid var(--pink);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px;text-align:center}
 .launch{display:inline-block;background:var(--pink-soft);color:var(--pink-deep);font-size:11.5px;font-weight:700;padding:5px 13px;border-radius:99px;margin-bottom:12px}
 .inc{text-align:left;margin:16px 0;max-width:440px;margin-left:auto;margin-right:auto}
-.inc li{list-style:none;display:flex;gap:9px;align-items:flex-start;margin-bottom:9px;font-size:14px}
-.inc .ck{color:var(--green);font-weight:800;flex:0 0 auto}
+.inc li{list-style:none;position:relative;padding-left:26px;margin-bottom:9px;font-size:14px;line-height:1.45}
+.inc .ck{color:var(--green);font-weight:800;position:absolute;left:0;top:1px}
 .price{margin:16px 0 4px}
 .price .big{font-family:'Fraunces';font-size:48px;color:var(--pink-deep);font-weight:700;line-height:1}.price .cents{font-size:13px;color:var(--ink-soft)}
 .vs{display:flex;align-items:center;justify-content:center;gap:12px;margin:12px 0;font-size:13.5px;color:var(--ink-soft)}.vs .creme{text-decoration:line-through}.vs b{color:var(--ink)}
@@ -204,7 +204,7 @@ h2.title{font-size:clamp(23px,4.4vw,34px);font-weight:600;margin-bottom:8px}
 
 /* fechamento + footer */
 .recap{text-align:left;max-width:440px;margin:18px auto}
-.recap li{list-style:none;display:flex;gap:9px;align-items:flex-start;margin-bottom:8px;font-size:13.5px}.recap .ck{color:var(--green);font-weight:800}
+.recap li{list-style:none;position:relative;padding-left:24px;margin-bottom:8px;font-size:13.5px;line-height:1.45}.recap .ck{color:var(--green);font-weight:800;position:absolute;left:0;top:0}
 .foot{text-align:center;font-size:11px;color:var(--ink-soft);line-height:1.6;padding:30px 0 10px}
 .foot a{color:var(--pink-deep);text-decoration:none}
 
@@ -233,13 +233,11 @@ h2.title{font-size:clamp(23px,4.4vw,34px);font-weight:600;margin-bottom:8px}
           <source src="vsl_h264.mp4" type="video/mp4">
         </video>
       </div>
-      <p class="vsl-cap">▶ Aperte o play — o Kim te explica tudo neste vídeo.</p>
     </div>
     <div class="h-cta">
       <div id="heroCtaWrap" style="display:none">
         <a class="btn pulse btn-checkout" href="https://pay.hotmart.com/A106482994M?off=h2oaym8v&checkoutMode=10" onclick="icFire(this)">QUERO O MEU GUIA AGORA <span class="arrow">→</span></a>
       </div>
-      <div class="byline">Por <b>Kim Dojun</b> · criador coreano de K-beauty · <a class="yt" href="https://www.youtube.com/@kimdojunn" target="_blank" rel="noopener" style="margin-left:4px"><span class="play">▶</span> +20 mil</a></div>
     </div>
   </div>
 </header>
